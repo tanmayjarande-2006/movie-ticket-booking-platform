@@ -1,0 +1,160 @@
+/* Task 1 & 6: basic styling + footer stays at bottom via Flexbox */
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Task 2: header and footer */
+header, footer {
+    background-color: #1a1a2e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin: 0 0 10px 0;
+}
+
+/* Task 3: horizontal nav bar, Flexbox + responsive */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #e94560;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Task 4: card */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    background-color: #fff3f5;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+/* Task 5: lists */
+ol li {
+    margin-bottom: 8px;
+    color: #1a1a2e;
+}
+
+dl {
+    background-color: #eef1f8;
+    padding: 15px 20px;
+    border-radius: 6px;
+}
+
+dt {
+    font-weight: bold;
+    color: #e94560;
+}
+
+dd {
+    margin: 0 0 8px 0;
+}
+
+/* Task 6: consistent layout */
+section {
+    padding: 20px 0;
+}
+
+h2 {
+    color: #1a1a2e;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+form {
+    max-width: 350px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+/* Task 2 (CTA animation) */
+button {
+    background-color: #e94560;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c73650;
+}
+
+.cta {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+a {
+    color: #e94560;
+}
