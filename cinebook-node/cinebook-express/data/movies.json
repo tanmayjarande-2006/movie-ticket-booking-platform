@@ -1,0 +1,12 @@
+[
+    { "name": "Pathaan", "genre": "Action", "language": "Hindi", "duration": "2h 26m", "rating": "UA", "time": "10:00 AM", "price": 250, "screen": "Screen 1" },
+    { "name": "Jawan", "genre": "Thriller", "language": "Hindi", "duration": "2h 49m", "rating": "UA", "time": "1:00 PM", "price": 280, "screen": "Screen 2" },
+    { "name": "Kalki 2898 AD", "genre": "Sci-Fi", "language": "Telugu", "duration": "3h 1m", "rating": "UA", "time": "7:00 PM", "price": 320, "screen": "Screen 3" },
+    { "name": "Animal", "genre": "Action", "language": "Hindi", "duration": "3h 21m", "rating": "A", "time": "9:30 PM", "price": 300, "screen": "Screen 1" },
+    { "name": "Fukrey 3", "genre": "Comedy", "language": "Hindi", "duration": "2h 20m", "rating": "UA", "time": "11:30 AM", "price": 220, "screen": "Screen 3" },
+    { "name": "Munjya", "genre": "Horror", "language": "Hindi", "duration": "2h 5m", "rating": "UA", "time": "7:00 PM", "price": 240, "screen": "Screen 2" },
+    { "name": "Jab We Met", "genre": "Romance", "language": "Hindi", "duration": "2h 18m", "rating": "U", "time": "3:30 PM", "price": 210, "screen": "Screen 1" },
+    { "name": "12th Fail", "genre": "Drama", "language": "Hindi", "duration": "2h 27m", "rating": "U", "time": "4:30 PM", "price": 230, "screen": "Screen 2" },
+    { "name": "Stree 2", "genre": "Horror", "language": "Hindi", "duration": "2h 30m", "rating": "UA", "time": "4:00 PM", "price": 260, "screen": "Screen 3" },
+    { "name": "Article 370", "genre": "Thriller", "language": "Hindi", "duration": "2h 38m", "rating": "UA", "time": "6:00 PM", "price": 270, "screen": "Screen 1" }
+]

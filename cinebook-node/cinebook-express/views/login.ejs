@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+
+<section class="page-section bg-page-blue">
+<div class="container my-4">
+<% if (user) { %>
+    <h2>My Account</h2>
+    <div class="jslab-card" style="max-width:400px;">
+        <dl class="mb-0" style="border:none; background:none; padding:0; box-shadow:none; border-radius:0;">
+            <dt>Name</dt><dd><%= user.name %></dd>
+            <dt>Email</dt><dd><%= user.email %></dd>
+            <dt>Mobile</dt><dd><%= user.mobile %></dd>
+            <dt>Gender</dt><dd><%= user.gender %></dd>
+        </dl>
+    </div>
+    <a href="/mybookings" class="btn btn-danger mt-3">View My Bookings</a>
+    <button class="btn btn-outline-secondary mt-3" onclick="logout()">Logout</button>
+<% } else { %>
+    <h2>User Login</h2>
+    <form id="loginForm" style="max-width:350px;" onsubmit="return loginUser(event)">
+        <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input type="email" id="loginEmail" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <div class="password-wrap">
+                <input type="password" id="loginPassword" class="form-control" required>
+                <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">Show</button>
+            </div>
+        </div>
+        <p id="loginError" class="text-danger"></p>
+        <button type="submit" class="btn btn-danger">Login</button>
+    </form>
+
+    <hr style="max-width:350px;">
+
+    <h3>New to CineBook? Create an Account</h3>
+    <form id="accountForm" style="max-width:400px;" onsubmit="return validateAccountForm(event)" novalidate>
+        <div class="mb-2"><label class="form-label">Full Name</label><input type="text" id="accName" class="form-control"></div>
+        <div class="mb-2"><label class="form-label">Mobile Number</label><input type="text" id="accMobile" class="form-control"></div>
+        <div class="mb-2"><label class="form-label">Email</label><input type="text" id="accEmail" class="form-control"></div>
+        <div class="mb-2">
+            <label class="form-label">Password</label>
+            <div class="password-wrap">
+                <input type="password" id="accPass" class="form-control">
+                <button type="button" class="password-toggle" onclick="togglePassword('accPass', this)">Show</button>
+            </div>
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Confirm Password</label>
+            <div class="password-wrap">
+                <input type="password" id="accCPass" class="form-control">
+                <button type="button" class="password-toggle" onclick="togglePassword('accCPass', this)">Show</button>
+            </div>
+        </div>
+        <div class="mb-2">
+            <label class="form-label d-block">Gender</label>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="gender" id="genM" value="Male"><label class="form-check-label" for="genM">Male</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="gender" id="genF" value="Female"><label class="form-check-label" for="genF">Female</label></div>
+        </div>
+        <p id="accError" class="text-danger"></p>
+        <button type="submit" class="btn btn-danger">Create Account</button>
+    </form>
+<% } %>
+</div>
+</section>
+
+<%- include('partials/footer') %>

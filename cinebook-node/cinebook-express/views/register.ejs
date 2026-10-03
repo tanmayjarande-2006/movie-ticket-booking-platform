@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+<section class="page-section bg-page-purple">
+<div class="container my-4">
+    <h2>Book Tickets</h2>
+    <p class="text-muted">Booking as <strong><%= user.name %></strong> (<%= user.email %>)</p>
+    <form id="bookingForm" style="max-width:350px;" onsubmit="bookTicket(event)">
+        <div class="mb-3">
+            <label for="movie" class="form-label">Select Movie</label>
+            <select id="movie" class="form-select">
+                <% movies.forEach(function(m) { %>
+                <% var label = m.name + ' - ' + m.time; %>
+                <option value="<%= label %>" <%= selectedMovie === label ? 'selected' : '' %>><%= label %></option>
+                <% }); %>
+            </select>
+        </div>
+        <label class="form-label">Select Your Seats</label>
+        <div class="screen-label">SCREEN THIS WAY</div>
+        <div id="seatMap" class="seat-map"></div>
+        <div class="mb-2">
+            <span class="seat-swatch tier-silver"></span> Silver - ₹150
+            <span class="seat-swatch tier-gold ms-2"></span> Gold - ₹250
+            <span class="seat-swatch tier-platinum ms-2"></span> Platinum - ₹400
+            <span class="seat-swatch selected ms-2"></span> Selected
+        </div>
+        <p id="seatSummary" class="text-muted">No seats selected yet.</p>
+
+        <div class="payment-panel mt-3">
+            <h6>Payment Details</h6>
+            <div class="mb-2">
+                <label for="cardName" class="form-label">Name on Card</label>
+                <input type="text" id="cardName" class="form-control">
+            </div>
+            <div class="mb-2">
+                <label for="cardNumber" class="form-label">Card Number</label>
+                <input type="text" id="cardNumber" class="form-control" maxlength="19" placeholder="1234 5678 9012 3456" oninput="formatCardNumber(this)">
+            </div>
+            <div class="row">
+                <div class="col-6 mb-2">
+                    <label for="cardExpiry" class="form-label">Expiry (MM/YY)</label>
+                    <input type="text" id="cardExpiry" class="form-control" maxlength="5" placeholder="MM/YY" oninput="formatExpiry(this)">
+                </div>
+                <div class="col-6 mb-2">
+                    <label for="cardCvv" class="form-label">CVV</label>
+                    <input type="password" id="cardCvv" class="form-control" maxlength="3" placeholder="123">
+                </div>
+            </div>
+        </div>
+
+        <p id="billResult" class="fw-bold mt-3"></p>
+        <p id="paymentError" class="text-danger"></p>
+        <button type="submit" class="btn btn-danger cta">Confirm Booking &amp; Pay</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="cancelBooking(this)">Cancel</button>
+    </form>
+    <div id="bookingLog" class="mt-3"></div>
+
+    <div class="jslab-card mt-4">
+        <h5>Order Snacks to Your Seat</h5>
+        <select id="snackChoice" class="form-select mb-2" style="max-width:300px;">
+            <option>Popcorn &amp; Coke Combo</option>
+            <option>Nachos</option>
+            <option>Cold Coffee</option>
+        </select>
+        <button class="btn btn-danger btn-sm" onclick="startFoodOrder()">Order to Seat</button>
+        <ul id="foodLog" class="list-group mt-2" style="max-width:400px;"></ul>
+    </div>
+
+    <div class="jslab-card mt-4">
+        <h5>Buy Combo Online</h5>
+        <select id="comboChoice" class="form-select mb-2" style="max-width:300px;">
+            <option>Family Combo</option>
+            <option>Couple Combo</option>
+            <option>Solo Snack Box</option>
+        </select>
+        <button class="btn btn-danger btn-sm" onclick="startShopping()">Buy Combo</button>
+        <ul id="shopLog" class="list-group mt-2" style="max-width:400px;"></ul>
+    </div>
+</div>
+</section>
+
+<%- include('partials/footer') %>

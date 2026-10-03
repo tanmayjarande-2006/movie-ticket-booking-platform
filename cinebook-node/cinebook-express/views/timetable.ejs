@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+
+<section class="page-section bg-page-pink">
+<div class="container my-4">
+    <h2>Show Timetable</h2>
+    <p class="text-muted">Which screen each film is playing on today, read from the same <code>data/movies.json</code> as Now Showing.</p>
+    <table class="table table-striped table-bordered bg-white">
+        <thead class="table-dark">
+            <tr>
+                <th>Screen</th>
+                <th>Movie</th>
+                <th>Language</th>
+                <th>Show Time</th>
+                <th>Duration</th>
+                <th>Book</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% movies.forEach(function(m) { %>
+            <tr>
+                <td><%= m.screen %></td>
+                <td><%= m.name %></td>
+                <td><%= m.language %></td>
+                <td><%= m.time %></td>
+                <td><%= m.duration %></td>
+                <td><a href="/register?movie=<%= encodeURIComponent(m.name + ' - ' + m.time) %>">Book Now</a></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+</section>
+
+<%- include('partials/footer') %>

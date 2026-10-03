@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<section class="page-section bg-page-gold">
+<div class="container my-4">
+    <h2>My Bookings</h2>
+    <% if (!bookings.length) { %>
+    <p class="text-muted">No bookings yet — tickets you confirm on the Book Tickets page will show up here.</p>
+    <a href="/register" class="btn btn-danger">Book a Movie</a>
+    <% } else { %>
+    <div class="row g-3">
+        <% bookings.forEach(function(b) { %>
+        <div class="col-md-6">
+            <div class="jslab-card h-100">
+                <h5><%= b.movie %></h5>
+                <p class="mb-1"><strong>Seats:</strong> <%= b.seats.join(', ') %></p>
+                <p class="mb-1"><strong>Amount Paid:</strong> ₹<%= b.bill.finalAmount %></p>
+                <p class="mb-1"><strong>Card:</strong> **** <%= b.cardLast4 %></p>
+                <p class="mb-0 text-muted" style="font-size:0.85rem;">
+                    <%= new Date(b.bookedAt).toLocaleString() %>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+    <% } %>
+</div>
+</section>
+
+<%- include('partials/footer') %>

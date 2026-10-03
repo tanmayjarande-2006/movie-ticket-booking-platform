@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+
+<section class="page-section bg-page-pink">
+<div class="container my-4">
+    <h2>Welcome to CineBook</h2>
+    <p>Book your favourite movie tickets online in just a few clicks.</p>
+    <img src="/cinema_banner.jpg" alt="Cinema Hall" class="img-fluid rounded mb-4 mx-auto d-block">
+
+    <div class="card mx-auto mb-4 offer-card">
+        <div class="card-body text-center">
+            <h3 class="card-title">Weekend Offer</h3>
+            <p class="card-text">Get 20% off on tickets booked for weekend shows!</p>
+        </div>
+    </div>
+
+    <h3 class="mb-3">Why CineBook</h3>
+    <div class="row text-center g-3 mb-4">
+        <div class="col-md-4 col-sm-12">
+            <div class="feature-card feature-1">
+                <div class="feature-icon">1</div>
+                <h5>Easy Booking</h5><p>Book tickets in under a minute.</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="feature-card feature-2">
+                <div class="feature-icon">2</div>
+                <h5>Best Prices</h5><p>Great seats at affordable prices.</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="feature-card feature-3">
+                <div class="feature-icon">3</div>
+                <h5>Secure Payment</h5><p>100% safe and secure checkout.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3>How It Works</h3>
+    <ol>
+        <li>Choose a movie</li>
+        <li>Select showtime and seats</li>
+        <li>Make the payment</li>
+        <li>Get your e-ticket</li>
+    </ol>
+
+    <h3>Cinema Info</h3>
+    <dl>
+        <dt>Address</dt><dd>CineBook Mall, MG Road</dd>
+        <dt>Contact</dt><dd>+91 98765 43210</dd>
+        <dt>Timings</dt><dd>10:00 AM - 11:00 PM</dd>
+    </dl>
+
+    <h3>What Our Customers Say</h3>
+    <div class="row g-3 text-center">
+        <div class="col-md-4 col-sm-12">
+            <img src="/avatar1.jpg" class="rounded-circle mb-2 avatar-ring-1" width="80" height="80" alt="Riya">
+            <p>"Super smooth booking experience!" - Riya</p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img src="/avatar2.jpg" class="rounded-circle mb-2 avatar-ring-2" width="80" height="80" alt="Aman">
+            <p>"Got great seats at a great price." - Aman</p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img src="/avatar3.jpg" class="rounded-circle mb-2 avatar-ring-3" width="80" height="80" alt="Sneha">
+            <p>"Easy to use and very fast." - Sneha</p>
+        </div>
+    </div>
+
+    <div class="jslab-card mt-4">
+        <h5>Leave a Review</h5>
+        <textarea id="reviewBox" class="form-control" rows="2" maxlength="200" oninput="updateCharCount()" placeholder="Tell us about your experience..."></textarea>
+        <p class="mt-1 mb-0 text-muted"><span id="charCount">0</span>/200 characters</p>
+    </div>
+</div>
+</section>
+
+<%- include('partials/footer') %>

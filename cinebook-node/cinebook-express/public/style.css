@@ -1,0 +1,306 @@
+/* =========================================================
+   CineBook design tokens
+   Marquee energy, multiplex order: condensed display type for
+   headings (cinema marquee lettering), calm body type underneath,
+   ticket/seat-shaped details instead of generic rounded cards.
+   ========================================================= */
+:root {
+    --ink: #1a1a2e;
+    --navy: #0f3460;
+    --coral: #e94560;
+    --coral-dark: #c73650;
+    --gold: #f3a712;
+    --purple: #533483;
+    --maroon: #7a1530;
+    --teal: #1f8a70;
+    --rose: #c2185b;
+    --cream: #fffaf5;
+    --muted: #6b6b76;
+    --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+    --font-body: 'Poppins', 'Segoe UI', sans-serif;
+    --radius: 10px;
+    --shadow: 0 4px 16px rgba(26, 26, 46, 0.1);
+}
+
+/* ---- base type ---- */
+body {
+    font-family: var(--font-body);
+    color: #2a2a35;
+    display: flex;
+    flex-direction: column;
+}
+html, body { height: 100%; }
+main { flex: 1; }
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+    color: var(--ink);
+}
+h2 { font-size: 2.6rem; margin-bottom: 0.6rem; }
+h3 { font-size: 1.9rem; margin-top: 1.6rem; }
+h5, h6 { font-family: var(--font-body); font-weight: 600; }
+p, li, dd, td, th { font-family: var(--font-body); }
+
+/* ---- brand chrome ---- */
+.bg-brand { background-color: var(--ink) !important; }
+.navbar-brand {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+}
+.navbar { padding-top: 0.9rem; padding-bottom: 0.9rem; }
+
+footer p {
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: #c9c9d6;
+}
+
+/* ---- page tints ---- */
+.page-section { min-height: calc(100vh - 220px); padding-top: 0.5rem; }
+.bg-page-pink   { background-color: #fff0f3; }
+.bg-page-blue   { background-color: #eaf1fb; }
+.bg-page-gold   { background-color: #fff8e6; }
+.bg-page-purple { background-color: #f4eefb; }
+
+/* ---- generic content cards ---- */
+.jslab-card {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 22px;
+    border-left: 4px solid #0d9488;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+}
+.jslab-card h5 { margin-bottom: 0.9rem; }
+
+/* ---- links, nav, pagination ---- */
+a, .dropdown-item:hover { color: var(--coral); }
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+}
+.navbar-nav .nav-link:hover { color: var(--coral) !important; }
+.page-item.active .page-link { background-color: var(--coral); border-color: var(--coral); }
+.page-link { color: var(--coral); }
+
+/* ---- buttons ---- */
+.btn { font-family: var(--font-body); font-weight: 600; border-radius: 8px; padding: 0.55rem 1.3rem; }
+.btn-danger, a.btn-danger {
+    background-color: var(--coral);
+    border-color: var(--coral);
+    color: #fff; /* set explicitly - don't rely on Bootstrap loading to override the global `a { color }` rule above */
+    box-shadow: 0 3px 10px rgba(233, 69, 96, 0.35);
+}
+.btn-danger:hover, a.btn-danger:hover {
+    background-color: var(--coral-dark);
+    border-color: var(--coral-dark);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(233, 69, 96, 0.45);
+}
+.btn-outline-secondary { border-radius: 8px; font-weight: 600; }
+
+/* ---- form controls ---- */
+.form-control, .form-select {
+    border-radius: 8px;
+    border-color: #d9d9e3;
+    padding: 0.55rem 0.85rem;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--coral);
+    box-shadow: 0 0 0 0.2rem rgba(233, 69, 96, 0.15);
+}
+
+/* ---- password show/hide toggle ---- */
+.password-wrap { position: relative; }
+.password-wrap input { padding-right: 58px; width: 100%; } /* explicit - don't rely on Bootstrap's .form-control width */
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--coral);
+    cursor: pointer;
+    padding: 4px 6px;
+}
+.password-toggle:hover { color: var(--coral-dark); }
+.form-label { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+
+/* ---- offer card: styled like a torn ticket stub ---- */
+.offer-card {
+    max-width: 400px;
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    position: relative;
+    background:
+        radial-gradient(circle 9px at 0 50%, transparent 9px, var(--cream) 9.5px) left center,
+        radial-gradient(circle 9px at 100% 50%, transparent 9px, var(--cream) 9.5px) right center;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+}
+.offer-card::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    border-left: 2px dashed #f3c9d1;
+}
+.offer-card .card-body { padding: 1.8rem 1.4rem; }
+.offer-card .card-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--coral); margin-bottom: 0.3rem; }
+
+/* ---- why-cinebook feature cards ---- */
+.feature-card {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    height: 100%;
+    box-shadow: var(--shadow);
+}
+.feature-card h5 { margin: 0.5rem 0 0.3rem; }
+.feature-card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+.feature-icon {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 50%;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    margin: 0 auto 8px auto;
+}
+.feature-1 .feature-icon { background-color: var(--coral); }
+.feature-2 .feature-icon { background-color: var(--navy); }
+.feature-3 .feature-icon { background-color: var(--gold); }
+.feature-1 { border-top: 4px solid var(--coral); }
+.feature-2 { border-top: 4px solid var(--navy); }
+.feature-3 { border-top: 4px solid var(--gold); }
+
+/* ---- avatar rings ---- */
+.avatar-ring-1 { border: 3px solid var(--coral); }
+.avatar-ring-2 { border: 3px solid var(--navy); }
+.avatar-ring-3 { border: 3px solid var(--purple); }
+
+/* ---- genre badges ---- */
+.badge-action   { background-color: var(--coral); }
+.badge-thriller { background-color: var(--navy); }
+.badge-scifi    { background-color: var(--purple); }
+.badge-comedy   { background-color: var(--gold); }
+.badge-horror   { background-color: var(--maroon); }
+.badge-drama    { background-color: var(--teal); }
+.badge-romance  { background-color: var(--rose); }
+
+/* ---- description list ---- */
+dl {
+    background-color: var(--cream);
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--gold);
+    box-shadow: var(--shadow);
+}
+dt { font-weight: 700; color: var(--coral); margin-top: 0.4rem; }
+dt:first-child { margin-top: 0; }
+
+/* ---- tables ---- */
+.table { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.table thead.table-dark th { font-family: var(--font-body); font-weight: 600; letter-spacing: 0.02em; }
+
+/* ---- pulse animation on the booking CTA ---- */
+.cta { animation: pulse 1.5s infinite; }
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* =========================================================
+   Seat selection: drawn like real cinema seats, not generic
+   grid buttons — a curved screen arc up top, seat-back shape
+   with a notch for the headrest.
+   ========================================================= */
+.screen-label {
+    text-align: center;
+    background: linear-gradient(180deg, #e3e3ea, #cfcfd8);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: #555;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+.seat-map {
+    display: grid;
+    grid-template-columns: repeat(8, 32px);
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.seat {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px 8px 3px 3px;
+    background: #e7e7ee;
+    box-shadow: inset 0 -3px 0 rgba(15, 52, 96, 0.25);
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 32px;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+.seat:hover { transform: translateY(-2px); }
+
+/* Tier tints - match the row-based pricing in script.js/server.js so the
+   grid itself shows where Silver/Gold/Platinum seats are. */
+.seat.tier-silver { background: #c9ced8; }
+.seat.tier-gold { background: #ffdd8a; }
+.seat.tier-platinum { background: #d2b8f0; }
+
+.seat.selected {
+    background-color: var(--coral) !important;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.25);
+    color: #fff;
+}
+.seat-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px 4px 1px 1px;
+    background: #e7e7ee;
+    vertical-align: middle;
+}
+.seat-swatch.tier-silver { background-color: #c9ced8; }
+.seat-swatch.tier-gold { background-color: #ffdd8a; }
+.seat-swatch.tier-platinum { background-color: #d2b8f0; }
+.seat-swatch.selected { background-color: var(--coral); }
+
+/* ---- payment panel ---- */
+.payment-panel {
+    background: var(--ink);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 22px;
+    max-width: 400px;
+    box-shadow: var(--shadow);
+}
+.payment-panel .form-label { color: #e4e4ee; }
+.payment-panel .form-control { background: #262645; border-color: #3a3a5c; color: #fff; }
+.payment-panel .form-control::placeholder { color: #7d7d9c; }
+.payment-panel .form-control:focus { background: #262645; color: #fff; }
+.payment-panel h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}

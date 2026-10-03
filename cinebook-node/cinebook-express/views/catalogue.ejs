@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<section class="page-section bg-page-gold">
+<div class="container my-4">
+    <h2>Now Showing</h2>
+    <p class="text-muted">This table is rendered by the server from <code>data/movies.json</code> (read with <code>fs.readFileSync</code>) through an EJS template — nothing here is hardcoded in the HTML.</p>
+    <table class="table table-striped table-bordered bg-white">
+        <thead class="table-dark">
+            <tr>
+                <th>Movie Name</th>
+                <th>Genre</th>
+                <th>Language</th>
+                <th>Duration</th>
+                <th>Rating</th>
+                <th>Show Time</th>
+                <th>Price</th>
+                <th>Book</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% movies.forEach(function(m) { %>
+            <tr>
+                <td><%= m.name %></td>
+                <td><span class="badge badge-<%= m.genre.toLowerCase() === 'sci-fi' ? 'scifi' : m.genre.toLowerCase() %>"><%= m.genre %></span></td>
+                <td><%= m.language %></td>
+                <td><%= m.duration %></td>
+                <td><%= m.rating %></td>
+                <td><%= m.time %></td>
+                <td>₹<%= m.price %></td>
+                <td><a href="/register?movie=<%= encodeURIComponent(m.name + ' - ' + m.time) %>">Book Now</a></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+</section>
+
+<%- include('partials/footer') %>
